@@ -30,11 +30,6 @@ usePassport(app)
 const routes = require('./routes')
 app.use(routes)
 
-app.post('/users/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/users/login'
-}))
-
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)
 })
