@@ -3,16 +3,19 @@ const router = express.Router()
 const db = require('../../models')
 const Todo = db.Todo
 
-// router.get('/new', (req, res) => {
-//   return res.render('new')
-// })
+router.get('/new', (req, res) => {
+  return res.render('new')
+})
 
-// router.post('/', (req, res) => {
-//   const name = req.body.name
-//   return Todo.create({ name })
-//     .then(() => res.redirect('/'))
-//     .catch(error => console.log(error))
-// })
+router.post('/', (req, res) => {
+  const name = req.body.name
+  return Todo.create({
+    name,
+    UserId: '3'
+  })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 router.get('/:id', (req, res) => {
   const id = req.params.id
