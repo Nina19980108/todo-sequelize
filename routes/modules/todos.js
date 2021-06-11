@@ -44,12 +44,12 @@ router.put('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// router.delete('/:id', (req, res) => {
-//   const id = req.params.id
-//   return Todo.findById(id)
-//     .then(todo => todo.remove())
-//     .then(() => res.redirect('/'))
-//     .catch(error => console.log(error))
-// })
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  return Todo.findByPk(id)
+    .then(todo => todo.destroy())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 module.exports = router
