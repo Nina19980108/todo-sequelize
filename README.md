@@ -7,10 +7,10 @@
 ## 專案畫面
 
 首頁
-![image](https://github.com/Nina19980108/restaurantList_A1/blob/master/publc/img/home.png)
+![image](https://github.com/Nina19980108/todo-sequelize/blob/master/public/img/mainPage.png)
 
 登入頁
-![image](https://github.com/Nina19980108/restaurantList_A1/blob/master/publc/img/login.png)
+![image](https://github.com/Nina19980108/todo-sequelize/blob/master/public/img/loginPage.png)
 
 ## Features - 產品功能
 
