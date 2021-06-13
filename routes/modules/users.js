@@ -19,14 +19,29 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
+  const errors = []
+  if (!name || !email || !password || !confirmPassword) {
+    errors.push('Every space is required！')
+  }
+  if (password !== confirmPassword) {
+    errors.push('Password and Confirm Password are different!')
+  }
+  if (errors.length) return res.render('register', {
+    name,
+    email,
+    password,
+    confirmPassword,
+    errors
+  })
   User.findOne({ where: { email } }).then(user => {
     if (user) {
-      console.log('User already exists')
+      errors.push('User already exists!')
       return res.render('register', {
         name,
         email,
         password,
-        confirmPassword
+        confirmPassword,
+        errors
       })
     }
     return bcrypt
@@ -44,6 +59,7 @@ router.post('/register', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.logout()
+  req.flash('success_msg', "You've successfully logged out.")
   res.redirect('/users/login')
 })
 
